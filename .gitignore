@@ -1,0 +1,36 @@
+**/node_modules
+
+**/.yarn/*
+!**/.yarn/patches
+!**/.yarn/plugins
+!**/.yarn/releases
+**/.yarn/sdks
+!**/.yarn/versions
+
+#!.yarn/cache
+.pnp.*
+
+# misc
+.DS_Store
+.nvmrc
+.yvmrc
+.idea/
+*.pem
+
+# editors
+.vscode/*
+
+# production
+build/*
+
+# testing
+/coverage
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# typescript
+*.tsbuildinfo

@@ -1,0 +1,17 @@
+# Husky Initialization
+
+Husky initialization is determined by the presence of this specific file. If the file exists, it triggers the initialization of Husky, as defined in the `postinstall` script in `package.json`:
+
+```
+  "postinstall": "test -f .hi && (is-ci || husky) || true"
+```
+
+This script ensures that:
+ - Husky is only initialized when working directly within the package’s own repository.
+   - When this package is used as a dependency in another project, this file will not be included in the package contents preventing Husky from being set up.
+ - If the environment is a CI/CD pipeline, Husky is skipped automatically, thanks to the is-ci package, which detects CI environments and prevents unnecessary Git hooks from running.
+
+This setup ensures a clean and efficient workflow without unwanted Git hooks in CI or external projects.
+
+ - [husky documentation](https://typicode.github.io/husky/)
+ - [is-ci hocumentation](https://www.npmjs.com/package/is-ci)
